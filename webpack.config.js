@@ -26,7 +26,7 @@ module.exports = ({ mode } = { mode: "production" }) => ({
         ],
       },
       {
-        test: /\.?js$/,
+        test: /\.(js|jsx)$/, // .js and .jsx files
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -34,8 +34,15 @@ module.exports = ({ mode } = { mode: "production" }) => ({
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+        resolve: {
+          extensions: [".jsx"],
+        },
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./frontend/index.html",
+    }),
+  ],
 });
