@@ -1,7 +1,7 @@
 export default {
   collectCoverage: true,
-  collectCoverageFrom: ["frontend/*.{js,jsx}"],
+  collectCoverageFrom: ["src/*.{js,jsx}"],
   coverageDirectory: "coverage",
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/frontend/jest.setup.js"],
 };

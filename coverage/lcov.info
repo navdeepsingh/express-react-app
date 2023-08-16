@@ -1,5 +1,5 @@
 TN:
-SF:frontend/App.jsx
+SF:frontend/src/App.jsx
 FN:3,App
 FNF:1
 FNH:1
@@ -7,19 +7,6 @@ FNDA:1,App
 DA:4,1
 LF:1
 LH:1
-BRF:0
-BRH:0
-end_of_record
-TN:
-SF:frontend/index.js
-FNF:0
-FNH:0
-DA:5,0
-DA:6,0
-DA:7,0
-DA:8,0
-LF:4
-LH:0
 BRF:0
 BRH:0
 end_of_record

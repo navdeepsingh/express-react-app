@@ -3,7 +3,15 @@ const path = require("path");
 
 module.exports = ({ mode } = { mode: "production" }) => ({
   mode,
-  entry: "./frontend/index.js",
+  entry: "./frontend/src/index.js",
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:5001/",
+        pathRewrite: { "^/api": "" },
+      },
+    },
+  },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "build"),
@@ -42,7 +50,7 @@ module.exports = ({ mode } = { mode: "production" }) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./frontend/index.html",
+      template: "./frontend/src/index.html",
     }),
   ],
 });
