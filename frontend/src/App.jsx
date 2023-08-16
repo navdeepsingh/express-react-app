@@ -1,25 +1,27 @@
 import React from "react";
-import { testApiSlice, useGetTestQuery } from  "./api/testApiSlice.js";
+import { testApiSlice, useLazyGetTestQuery, useCreateTestMutation } from  "./api/testApiSlice.js";
 import { useDispatch } from "react-redux";
 
 
 function App() {
   const [data, setData] = React.useState(null);
   const [count, setCount] = React.useState(0);
-  //const dispatch = useDispatch();
-  const query = useGetTestQuery()
-  console.log('query', query)
+  //const [getTest] = useLazyGetTestQuery()
+  const [createTest] = useCreateTestMutation()
   
   
 
   const handleClick = async (e) => {
     e.preventDefault();
     //setCount(count => count+1);
+    const result = await createTest(0);
+    console.log('result', result)
+    setData(result.data)
     //dispatch(query)
     // console.log(testData)
-    fetch("http://localhost:8080/api/")
-      .then((response) => response.json())
-      .then((data) => setData(data) );
+    // fetch("http://localhost:8080/api/")
+    //   .then((response) => response.json())
+    //   .then((data) => setData(data) );
   }
   return (
   <>

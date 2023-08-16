@@ -6,10 +6,16 @@ export const testApiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
   endpoints: (builder) => ({
     getTest: builder.query({
-      query: () => `/`,
-      providesTags: ["Test"],
+      query: (count) => `/?count=${count}`,
+    }),
+    createTest: builder.mutation({
+      query: (data) => ({
+        url: "/create",
+        method: "POST",
+        body: data,
+      }),
     }),
   }),
 });
 
-export const { useGetTestQuery } = testApiSlice;
+export const { useLazyGetTestQuery, useCreateTestMutation } = testApiSlice;
